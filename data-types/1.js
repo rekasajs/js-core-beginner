@@ -1,0 +1,22 @@
+function isEqualObjects(obj1, obj2) {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let key of keys1) {
+    if (!obj2.hasOwnProperty(key) || obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const obj1 = { a: 'asd', b: 'zxc', c: 'zxc' };
+const obj2 = { a: 'asd', b: 'zxc', c: 'zxc' };
+const obj3 = { a: 1, b: 2, c: 3 };
+
+console.log(isEqualObjects(obj1, obj2)); // true
+console.log(isEqualObjects(obj1, obj3)); // false
